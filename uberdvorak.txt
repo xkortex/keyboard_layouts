@@ -1,0 +1,91 @@
+
+// ============================== My modified Programmer I ====================
+// w o o t
+// The goal of this keyboard is to augment the dvorak programmer layout with a 3rd and 4th layer that moves common
+// functionalities, like navigation, numpad, and special characters, towards the home rows. 
+// Layer 3 (Capslock as AltGr) 
+// * Paren/Bracket pairs as left hand clusters
+// * arrows, home/end and pg up/dwn as right hand
+// * Pinky delete on '/" key
+// * Restores x/c/v combos to left hand only
+// Layer 4
+// * Braces as LHC
+// * Right hand home row numpad
+//
+// Uses æ/Æ and %$ as placeholders for potentially useful inputs
+
+partial alphanumeric_keys
+xkb_symbols "udvp" {
+    include "us(dvorak)"
+    name[Group1] = "English (Uber Dvorak)";
+
+    
+    key <CAPS> { [ ISO_Level3_Shift            ] }; // replace Caps with AltGr
+
+    //             Unmodified       Shift           AltGr            Shift+AltGr
+    // symbols row, left side
+    key <TLDE> { [ dollar,          asciitilde,     dead_tilde                  ] };
+    key <AE01> { [ ampersand,       percent                                     ] };
+    key <AE02> { [ bracketleft,     7,              currency                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE03> { [ braceleft,       5,              cent                        ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE04> { [ braceright,      3,              yen                         ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE05> { [ parenleft,       1,              EuroSign                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE06> { [ equal,           9,              sterling                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+
+    // symbols row, right side
+    key <AE07> { [ asterisk,        0                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE08> { [ parenright,      2,              onehalf                     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE09> { [ plus,            4                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE10> { [ bracketright,    6,		oslash,		U203D		], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE11> { [ exclam,          8,              exclamdown,      U2E18	], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };  // reversed interrobang
+    key <AE12> { [ numbersign,      grave,          dead_grave                  ] };
+    key <BKSP> { [ BackSpace,       BackSpace                                   ] };
+
+    // upper row, left side
+    key <AD01> { [ semicolon,	colon,		percent,	dollar		] }; // q ring/pinky<
+    key <AD02> { [ comma,	less,		percent,	dollar		] }; // w ring
+    key <AD03> { [ period,	greater,	bracketleft,	percent		] }; // e middle
+    key <AD04> { [ p,		P,		bracketright,	percent		] }; // r middle/index
+    key <AD05> { [ y,		Y,		percent,	dollar		] }; // t
+
+    // upper row, right side
+    key <AD06> { [ f,		F, 		ae,		AE		] };
+    key <AD07> { [ g,		G,		Prior,		7		] };
+    key <AD08> { [ c,		C,		Up,		8		] }; // I middle
+    key <AD09> { [ r,		R,		Next,		9		] };
+    key <AD10> { [ l,		L,		ae,		plus		] };  
+    key <AD11> { [ slash,       question,	Escape,		asterisk	] };  
+    key <AD12> { [ at,		asciicircum,    ae,		AE		] };
+
+    // home row, left side
+    key <AC01> { [ a,		A,		aring,		Aring		] };
+    key <AC02> { [ o,		O,		oslash,		Ooblique	] };
+    key <AC03> { [ e,		E,		parenleft,	braceleft	] }; // d middle
+    key <AC04> { [ u,		U,		parenright,	braceright	] };
+    key <AC05> { [ i,		I,		colon,		AE		] };
+
+ // home row, right side
+    key <AC06> { [ d,		D,              Home,       	Home		] };
+    key <AC07> { [ h,		H,              Left,		4		] };
+    key <AC08> { [ t,		T,              Down,		5		] }; // middle
+    key <AC09> { [ n,		N,              Right,		6		] };
+    key <AC10> { [ s,		S,              End,		grave		] };
+    key <AC11> { [ minus,	underscore,     BackSpace,	Delete		] };
+    key <BKSL> { [ backslash,	bar                                         	] };
+
+    // lower row, left side
+    key <AB01> { [ apostrophe,	quotedbl,	z,		Z		] }; // left hand hotkey clusters
+    key <AB02> { [ q,		Q,		x,		X		] };
+    key <AB03> { [ j,		J,		c,		C		] };
+    key <AB04> { [ k,		K,		v,		V		] };
+    key <AB05> { [ x,	X		]	};
+
+    // lower row, right side
+    key <AB06> { [ b,		B,		Home,		0		] }; // index extended
+    key <AB07> { [ m,		M,		bracketleft,	1		] }; // index
+    key <AB08> { [ w,		W,		bracketright,	2		] }; // middle finger
+    key <AB09> { [ v,		V,		equal,		3		] }; // ring
+    key <AB10> { [ z,		Z,		percent,	period		] }; // pinky
+
+    include "level3(ralt_switch)"
+};
