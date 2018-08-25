@@ -43,7 +43,7 @@ xkb_symbols "udvp" {
 
     // upper row, left side
     key <AD01> { [ semicolon,	colon,		percent,	dollar		] }; // q ring/pinky<
-    key <AD02> { [ comma,	less,		percent,	dollar		] }; // w ring
+    key <AD02> { [ comma,	less,		BackSpace,	BackSpace	] }; // w ring
     key <AD03> { [ period,	greater,	bracketleft,	percent		] }; // e middle
     key <AD04> { [ p,		P,		bracketright,	percent		] }; // r middle/index
     key <AD05> { [ y,		Y,		percent,	dollar		] }; // t
